@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArionCheck</title>
+<style>
+body {
+  background-color: black;
+  margin: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 20px 0;
+  font-size: 3em;
+  text-shadow: 0 0 10px white; /* Свечение для заголовка */
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px auto;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(255,255,255,0.5); /* Усиленное свечение */
+  max-width: 80%;
+}
+
+.container label, .container span {
+  color: white;
+  text-shadow: 0 0 5px white; /* Свечение для текста */
+}
+
+.container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.container span {
+  font-size: 1.2em;
+  display: block;
+}
+
+.falling-dot {
+  position: absolute;
+  width: 1px; /* Уменьшили размер точек */
+  height: 10px; /* Уменьшили размер точек */
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 1px;
+}
+</style>
+</head>
+<body>
+  <h1>ARIONCHECK</h1>
+  <div id="falling-dots"></div>
+
+  <div class="container">
+    <label>Nickname:</label>
+    <span>Arion, Arioncheck</span>
+  </div>
+
+  <div class="container">
+    <label>Hobbie:</label>
+    <span>Coding</span>
+  </div>
+
+  <div class="container">
+    <label>Country:</label>
+    <span>Russia Federation</span>
+  </div>
+
+  <div class="container">
+    <label>My bro:</label>
+    <span>Ratataez</span>
+  </div>
+
+  <div class="container">
+    <label>Moderator in this chat:</label>
+    <span>🍇 GrapeCrack | Chat 🍇</span>
+  </div>
+
+  <script>
+    const dotsContainer = document.getElementById('falling-dots');
+    const speed = 10; // Увеличили скорость
+    const createInterval = 1; // Уменьшили интервал для большего количества точек
+    let dotIdCounter = 0;
+
+    setInterval(createDot, createInterval);
+
+    function createDot() {
+      const dot = document.createElement('div');
+      dot.id = `dot-${dotIdCounter++}`;
+      dot.classList.add('falling-dot');
+      dot.style.left = Math.random() * 100 + '%';
+      dot.style.top = -10 + 'px';
+      dotsContainer.appendChild(dot);
+      animateDot(dot);
+    }
+
+    function animateDot(dot) {
+      let top = parseInt(dot.style.top) || 0;
+      const windowHeight = window.innerHeight;
+
+      if (top > windowHeight + 10) {
+        dotsContainer.removeChild(dot);
+      } else {
+        dot.style.top = (top + speed) + 'px';
+        requestAnimationFrame(() => animateDot(dot));
+      }
+    }
+  </script>
+</body>
+</html>
+
