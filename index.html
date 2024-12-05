@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArionCheck</title>
+<style>
+body {
+  background-color: black;
+  margin: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 20px 0;
+  font-size: 3em;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px auto;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  max-width: 80%;
+}
+
+.container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.container span {
+  color: white;
+  font-size: 1.2em;
+  display: block;
+}
+
+/* Анимация точек */
+.falling-dots {
+  position: fixed; /* Важно: фиксированное позиционирование */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1; /* Точки под остальным контентом */
+}
+
+.falling-dot {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 1px;
+  animation: fall 10s linear infinite; /* Увеличил время анимации */
+}
+
+@keyframes fall {
+  0% { transform: translateY(-100%); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; } /* Исправлено */
+}
+
+/* Адаптивность */
+@media (min-width: 768px) {
+  .container {
+    font-size: 1.3em;
+  }
+  h1 {
+    font-size: 4em;
+  }
+}
+</style>
+</head>
+<body>
+  <h1>ARIONCHECK</h1>
+  <div class="falling-dots">
+    </div>
+
+
+  <div class="container">
+    <label>Nickname:</label>
+    <span>Arion, Arioncheck</span>
+  </div>
+
+  <div class="container">
+    <label>Hobbie:</label>
+    <span>Coding</span>
+  </div>
+
+  <div class="container">
+    <label>Country:</label>
+    <span>Russia Federation</span>
+  </div>
+
+  <div class="container">
+    <label>My bro:</label>
+    <span>Ratataez</span>
+  </div>
+
+  <div class="container">
+    <label>Moderator in this chat:</label>
+    <span>🍇 GrapeCrack | Chat 🍇</span>
+  </div>
+
+  <script>
+    const numDots = 200; // Увеличенное количество точек
+    const dotsContainer = document.querySelector('.falling-dots');
+    for (let i = 0; i < numDots; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('falling-dot');
+      dot.style.left = Math.random() * 100 + '%';
+      dot.style.animationDelay = Math.random() * 10 + 's'; // Случайная задержка
+      dotsContainer.appendChild(dot);
+    }
+  </script>
+</body>
+</html>
+
