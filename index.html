@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website with Dots</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 3em; /* Reduced font size for smaller screens */
+            font-weight: bold;
+            margin: 1em 0;
+            text-align: center;
+            text-shadow: 0 0 5px white; /* Reduced shadow blur */
+        }
+
+        .container {
+            background-color: #222;
+            border-radius: 10px; /* Slightly smaller radius */
+            padding: 15px;    /* Slightly less padding */
+            margin: 5px 0;     /* Less margin */
+            width: 90%;       /* Takes up more of the screen width */
+            box-shadow: 0 0 5px white; /* Reduced shadow blur */
+        }
+
+        .dot {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            width: 3px; /* Smaller dots */
+            height: 3px; /* Smaller dots */
+            animation: animateDot 10s linear infinite;
+        }
+
+        @keyframes animateDot {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .dots-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+        /* Media query for smaller screens (e.g., mobile) */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em; /* Further reduce font size */
+            }
+            .container {
+                width: 95%; /* Take up almost all available width */
+                padding: 10px; /* Even less padding */
+                margin: 2px 0;  /* Very little margin */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dots-container"></div>
+    <h1>arioncheck</h1>
+
+    <div class="container">
+        <h2>nickname:</h2>
+        <p>Arion, Arioncheck</p>
+    </div>
+    <div class="container">
+        <h2>Hobbie:</h2>
+        <p>Coding</p>
+    </div>
+    <div class="container">
+        <h2>Сountry:</h2>
+        <p>Russia Federation</p>
+    </div>
+    <div class="container">
+        <h2>My bro:</h2>
+        <p>Ratataez</p>
+    </div>
+    <div class="container">
+        <h2>moderator in this chat:</h2>
+        <p>🍇 GrapeCrack | Chat 🍇</p>
+    </div>
+
+    <script>
+        const numDots = 200;
+        const dotsContainer = document.querySelector('.dots-container');
+
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            dot.style.left = `${Math.random() * 100}%`;
+            dot.style.top = `${Math.random() * 100}%`;
+            dot.style.animationDelay = `${Math.random() * 5}s`;
+            dotsContainer.appendChild(dot);
+        }
+    </script>
+</body>
+</html>
+
