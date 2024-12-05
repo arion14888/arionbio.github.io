@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Arion Bio</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+  background-color: black;
+  margin: 0;
+  overflow: hidden;
+}
+
+.point {
+  position: absolute;
+  background-color: white;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  margin-top: 50px;
+  font-size: 3em;
+  line-height: 1.2;
+  text-shadow: 0 0 10px white; /* Add glow to the heading */
+}
+
+.container {
+  width: 50%;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Increased glow */
+  text-align: left;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  line-height: 1.5;
+  text-shadow: 0 0 5px white; /* Add glow to container text */
+}
+
+.container p {
+  margin-bottom: 5px;
+}
+</style>
+</head>
+<body>
+
+<h1><strong>ARIONCHECK</strong></h1>
+
+<div class="container">
+  <p>Nickname: Arion, Arioncheck</p>
+  <p>Hobby: Coding</p>
+  <p>Country: Russia Federation</p>
+  <p>My bro: Ratataez</p>
+  <p>Moderator in this chat: 🍇 GrapeCrack | Chat 🍇</p>
+</div>
+
+<script>
+const numPoints = 100;
+for (let i = 0; i < numPoints; i++) {
+  const point = document.createElement('div');
+  point.className = 'point';
+
+  point.style.left = Math.random() * 100 + '%';
+  point.style.top = -10 + 'px';
+  point.style.animationDuration = (Math.random() * 2 + 2) + 's'; // Faster animation
+  point.style.animationDelay = Math.random() * 5 + 's'; //Shorter delay
+
+  document.body.appendChild(point);
+}
+</script>
+
+<style>
+@keyframes fall {
+  0% { transform: translateY(-10px); }
+  100% { transform: translateY(100vh); }
+}
+
+.point {
+  animation: fall linear infinite;
+}
+</style>
+
+</body>
+</html>
+
