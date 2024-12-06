@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArionCheck</title>
+<style>
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: monospace;
+  margin: 0;
+  display: grid; /* Используем grid layout */
+  grid-template-columns: 1fr; /* Одна колонка, занимающая всю доступную ширину */
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  padding: 2rem 0;
+  font-size: 2em;
+  text-shadow: 0 0 10px rgba(128, 0, 128, 0.5);
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(128, 0, 128, 0.2);
+  border-radius: 10px;
+  margin: 1rem auto;
+  padding: 1rem;
+  width: calc(90% - 5rem);
+  max-width: calc(500px - 5rem);
+  box-shadow: 0 0 15px rgba(128, 0, 128, 0.3);
+  padding-left: 5rem;
+  text-align: left;
+}
+
+/* Media query для меньших экранов (телефоны) */
+@media (max-width: 768px) {
+  .container {
+    width: calc(90% - 2.5rem);
+    max-width: calc(400px - 2.5rem);
+    padding-left: 2.5rem;
+    font-size: 0.9em;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+.container h2, .container p {
+  font-size: 1em;
+  text-shadow: 0 0 5px rgba(128, 0, 128, 0.7);
+  margin-bottom: 1rem;
+}
+
+.separator {
+  height: 1px;
+  background-color: rgba(128, 0, 128, 0.2);
+  margin: 1rem 0;
+}
+</style>
+</head>
+<body>
+
+  <h1><span>ARIONCHECK</span></h1>
+
+  <div class="container">
+    <h2>Information about me:</h2>
+    <div class="separator"></div>
+    <h2>Nickname:</h2>
+    <p>Arion, Arioncheck</p>
+    <h2>Hobby:</h2>
+    <p>Coding</p>
+    <h2>Country:</h2>
+    <p>Russia Federation</p>
+  </div>
+
+  <div class="container">
+    <h2>My bro:</h2>
+    <div class="separator"></div>
+    <p>Ratataez</p>
+  </div>
+
+  <div class="container">
+    <h2>Active in these chats:</h2>
+    <div class="separator"></div>
+    <p>🍇 GrapeCrack | Chat 🍇</p>
+  </div>
+</body>
+</html>
